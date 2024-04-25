@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View Assets</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Add this line with the path to your favicon -->
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between; /* Align items horizontally */
+            align-items: center; /* Align items vertically */
+            background-color: #1a61a8;
+            padding: 5px 20px; /* Reduced padding */
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 14px; /* Reduced font size */
+        }
+
+        .btn-success {
+            background-color: #f5f5f5;
+            border-color: #ffffff;
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            border-color: #17578f;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th, .table td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f8f9fa;
+        }
+
+        .table img {
+            max-width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .btn {
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-sm {
+            font-size: 12px;
+            padding: 4px 8px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            color: #fff;
+        }
+
+        .navbar-heading {
+            flex-grow: 1; /* Allow the heading to grow and take up available space */
+            text-align: center; /* Center align the text */
+            color: #dee2e6; /* Text color */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    
+    <nav class="navbar">
+      <a class="btn btn-secondary" style="color: #007bff;" href="index.html">Home</a>
+      <h1 class="navbar-heading">ASSETS</h1> <!-- Centered heading -->
+      <a class="btn btn-success" style="color: #007bff;" href="/products/create">Add +</a>
+    </nav>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Asset Name</th>
+            <th>Asset Brand</th>
+            <th>Emp Name</th>
+            <th>Contact</th>
+            <th>Image</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product:${products}">
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.brand}"></td>
+            <td th:text="${product.employee}"></td>
+            <td th:text="@{${product.contact}}"></td>
+            <td>
+                <img th:src="@{'/Images/' + ${product.imageFileName}}" alt="..." width="100">
+            </td>
+            <td th:text="${product.createdAt.toString().substring(0,10)}"></td>
+
+            <td style="white-space:nowrap">
+                <a class="btn btn-primary btn-sm"
+                   th:href="@{/products/edit/{id}(id=${product.id})}">Edit</a>
+                <a class="btn btn-danger btn-sm"
+                   th:href="@{/products/delete/{id}(id=${product.id})}"
+                   onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

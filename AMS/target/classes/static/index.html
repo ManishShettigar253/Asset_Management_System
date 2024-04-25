@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AMS</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background-color: #007bff; /* Change color to blue */
+            color: #fff; /* Change text color to white */
+            border-bottom: 1px solid #0056b3; /* Darker shade for border */
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between; /* Align items at the ends */
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .background-image {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto; /* Center the div horizontally */
+        }
+
+        .background-image h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .background-image input[type="text"],
+        .background-image input[type="password"],
+        .background-image button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .background-image button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .background-image button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="/products">View Assets</a>
+    <a href="/logout" style="margin-left: auto;">Logout</a> <!-- Move to the right -->
+</nav>
+
+<div class="background-image">
+    <h3>ASSET MANAGEMENT SYSTEM</h3>
+</div>
+
+</body>
+</html>
